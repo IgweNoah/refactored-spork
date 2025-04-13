@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trip Types</title>
+    <style>
+          body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ccc;
+      background-color: white;
+      position: fixed;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-section img {
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      border-radius: 30px;
+    }
+
+    .logo-text {
+      line-height: 1;
+    }
+
+    .logo-text span:first-child {
+      display: block;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .logo-text span:last-child {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      padding: 5px;
+      border-bottom: 2px solid teal;
+      color: teal;
+      text-shadow: 2px 2px 7px #b1aeae;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      background: url(images/travel-backgroundimage.jpg) center/cover no-repeat;
+      background-color:  rgba(0, 0, 0, 0.5);
+      background-blend-mode: darken;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      color: white;
+    }
+
+    .first-h1 {
+      font-size: 50px;
+      margin-top: 30px;
+      color: aqua;
+      font-family: cursive;
+      text-shadow: 6px 4px 7px #000000;
+    }
+
+    .trip-types-section {
+      display: flex;
+      padding: 40px;
+      font-family: Arial, sans-serif;
+      gap: 30px;
+    }
+
+    .trip-list {
+      flex: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .trip-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .trip-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .trip-card-content {
+      padding: 15px;
+    }
+
+    .trip-card-content h4 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .trip-card-content p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .trip-card-content button {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background-color: #0f5d52;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .trip-filters {
+      width: 50%;
+      border: 1px solid #ddd;
+      padding: 30px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin:0 auto;
+      margin-bottom: 100px;
+    }
+
+    .trip-filters h3 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #0f5d52;
+    }
+
+    .trip-filters select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .Filter-your-trip {
+        width: 50%;
+        margin: 0 auto;
+        margin-left: 150px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #0f5d52;
+        border: none;
+        color: white;
+        font-size: large;
+    }
+
+    .bottom-section {
+      background-color: #0f5d52;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    .bottom-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+
+    .column h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .column p {
+      margin: 8px 0;
+      font-size: 15px;
+      color: #d1d1d1;
+    }
+
+    .column a {
+      display: block;
+      text-decoration: none;
+      color: #d1d1d1;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    </style>
+</head>
+<body>
+        <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-section">
+      <img src="images/logo.jpg" alt="Logo">
+      <div class="logo-text">
+        <span>TRAVEL</span>
+        <span>MONSTER</span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="#">All Trips</a>
+      <a href="destination.html">Destination</a>
+      <a href="activity.html">Activities</a>
+      <a href="trip-typs.html">Trip Types</a>
+      <a href="blog.html">Blog</a>
+      <a href="subscribtion.html">Subscribtion</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="#">Sign up</a>
+    </div>
+  </div>
+    
+  <section class="hero">
+    <div class="content">
+        <h1 class="first-h1">Trip Types</h1>
+      </div>
+  </section>
+
+  <section class="trip-types-section">
+    <div class="trip-list">
+      <div class="trip-card">
+        <img src="images/romantic-trip.jpg" alt="Romantic Trip">
+        <div class="trip-card-content">
+          <h4>Romantic Getaway</h4>
+          <p>Enjoy a special trip with your loved one in a peaceful and romantic setting.</p>
+          <button>About This Trip</button>
+        </div>
+      </div>
+  
+      <div class="trip-card">
+        <img src="images/cultural-trip.jpg" alt="Cultural Trip">
+        <div class="trip-card-content">
+          <h4>Cultural Exploration</h4>
+          <p>Discover traditions, cuisine, and history in cultural hotspots worldwide.</p>
+          <button>About This Trip</button>
+        </div>
+      </div>
+  
+      <div class="trip-card">
+        <img src="images/adventure-trip.jpg" alt="Adventure Trip">
+        <div class="trip-card-content">
+          <h4>Adventure Tour</h4>
+          <p>Push your limits with thrilling activities in exotic locations.</p>
+          <button>About This Trip</button>
+        </div>
+      </div>
+  
+      <div class="trip-card">
+        <img src="images/Relaxation Trip.jpg" alt="Relaxation Trip">
+        <div class="trip-card-content">
+          <h4>Relaxation Escape</h4>
+          <p>Recharge in tranquil environments like beaches, spas, and resorts.</p>
+          <button>About This Trip</button>
+        </div>
+      </div>
+  
+      <div class="trip-card">
+        <img src="images/ECO-trips.jpg" alt="Eco Trip">
+        <div class="trip-card-content">
+          <h4>Eco-friendly Travel</h4>
+          <p>Connect with nature while preserving it. Ideal for green travelers.</p>
+          <button>About This Trip</button>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="images/ECO-trips.jpg" alt="Eco Trip">
+        <div class="trip-card-content">
+          <h4>Eco-friendly Travel</h4>
+          <p>Connect with nature while preserving it. Ideal for green travelers.</p>
+          <button>About This Trip</button>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="images/ECO-trips.jpg" alt="Eco Trip">
+        <div class="trip-card-content">
+          <h4>Eco-friendly Travel</h4>
+          <p>Connect with nature while preserving it. Ideal for green travelers.</p>
+          <button>About This Trip</button>
+        </div>
+      </div>
+  
+      <div class="trip-card">
+        <img src="images/wild-life-trip.jpg" alt="Wildlife Trip">
+        <div class="trip-card-content">
+          <h4>Wildlife Safari</h4>
+          <p>Get close to nature's wonders on guided safaris and jungle adventures.</p>
+          <button>About This Trip</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trip-filters">
+    <h3>Filter Your Trip</h3>
+    <select>
+      <option selected>Destination *</option>
+      <option>France</option>
+      <option>Japan</option>
+      <option>Australia</option>
+      <option>Greece</option>
+      <option>Thailand</option>
+      <option>Morocco</option>
+      <option>South Africa</option>
+    </select>
+
+    <select>
+      <option selected>Trip Type *</option>
+      <option>Romantic</option>
+      <option>Adventure</option>
+      <option>Cultural</option>
+      <option>Relaxation</option>
+      <option>Family</option>
+      <option>Solo</option>
+      <option>Wildlife</option>
+    </select>
+
+    <select>
+      <option selected>Duration *</option>
+      <option>1-3 Days</option>
+      <option>4-7 Days</option>
+      <option>1-2 Weeks</option>
+      <option>More than 2 Weeks</option>
+    </select>
+
+    <select>
+      <option selected >Budget *</option>
+      <option>Under $500</option>
+      <option>$500 - $1000</option>
+      <option>$1000 - $3000</option>
+      <option>Over $3000</option>
+    </select>
+
+    <select>
+      <option selected>Season *</option>
+      <option>Winter</option>
+      <option>Spring</option>
+      <option>Summer</option>
+      <option>Autumn</option>
+    </select>
+
+    <select>
+      <option selected>Group Size *</option>
+      <option>Solo</option>
+      <option>Couple</option>
+      <option>Small Group (3-6)</option>
+      <option>Medium Group (7-15)</option>
+      <option>Large Group (15+)</option>
+    </select>
+    <button class="Filter-your-trip">Filter your Trip</button>
+  </div>
+</section>
+
+<div class="bottom-section">
+    <div class="bottom-container">
+      
+      <div class="column">
+        <h3>Contact Info</h3>
+        <p>Open from 6 AM to 9 PM everyday.</p>
+        <p>01 2345 65486</p>
+        <a href="igwehchisom5@gmail.com">igwehchisom5@gmail.com</a>
+        <a href="#">Nigeria, Delta state</a>
+      </div>
+
+      <div class="column">
+        <h3>Destinations</h3>
+        <a href="#">Nepal</a>
+        <a href="#">Maldives</a>
+        <a href="#">Sri Lanka</a>
+        <a href="#">India</a>
+        <a href="#">Philippines</a>
+        <a href="#">France</a>
+        <a href="#">Thailand</a>
+        <a href="#">Greece</a>
+        <a href="#">Japan</a>
+      </div>
+
+      <div class="column">
+        <h3>Activities</h3>
+        <a href="#">City Tour</a>
+        <a href="#">Trekking</a>
+        <a href="#">Jungle Safari</a>
+        <a href="#">Cycling</a>
+        <a href="#">Hiking</a>
+        <a href="#">Boating</a>
+        <a href="#">Scuba Diving</a>
+        <a href="#">Kayaking</a>
+        <a href="#">Mountain Biking</a>
+      </div>
+
+      <div class="column">
+        <h3>Trip Types</h3>
+        <a href="#">Nature Friendly</a>
+        <a href="#">Budget Travel</a>
+        <a href="#">Cultural</a>
+        <a href="#">Child-friendly</a>
+        <a href="#">High Altitude</a>
+        <a href="#">Dog-friendly</a>
+        <a href="#">Luxury Travel</a>
+        <a href="#">Solo Adventures</a>
+        <a href="#">Group Tours</a>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

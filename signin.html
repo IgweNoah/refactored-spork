@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ccc;
+      background-color: white;
+      position: fixed;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-section img {
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      border-radius: 30px;
+    }
+
+    .logo-text {
+      line-height: 1;
+    }
+
+    .logo-text span:first-child {
+      display: block;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .logo-text span:last-child {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      padding: 5px;
+      border-bottom: 2px solid teal;
+      color: teal;
+      text-shadow: 2px 2px 7px #b1aeae;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      background: url(images/travel-backgroundimage.jpg) center/cover no-repeat;
+      background-color:  rgba(0, 0, 0, 0.5);
+      background-blend-mode: darken;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      color: #0f5d52;
+    }
+
+    .first-h1 {
+      font-size: 50px;
+      margin-top: 30px;
+      color: aqua;
+      font-family: cursive;
+      text-shadow: 6px 4px 7px #000000;
+    }
+
+    .signup-container {
+      max-width: 1000px;
+      margin: 60px auto;
+      display: flex;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .signup-left {
+      flex: 1;
+      background-color: #007BFF;
+      color: white;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .signup-left h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .signup-left p {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .signup-form-container {
+      flex: 1;
+      background-color: #fff;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .signup-form-container h2 {
+      font-size: 30px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .signup-form-container input[type="text"],
+    .signup-form-container input[type="email"],
+    .signup-form-container input[type="password"] {
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .signup-form-container input:focus {
+      border-color: #00C1FF;
+      outline: none;
+      box-shadow: 0 0 6px rgba(0, 193, 255, 0.4);
+    }
+
+    .signup-form-container .checkbox {
+      display: flex;
+      align-items: center;
+      margin: 10px 0 20px;
+      font-size: 14px;
+    }
+
+    .signup-form-container .checkbox input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .signup-form-container .checkbox a {
+      color: #0f5d52;
+      text-decoration: none;
+      margin-left: 5px;
+    }
+
+    .signup-form-container .checkbox a:hover {
+      text-decoration: underline;
+    }
+
+    .signup-form-container a.signup-btn {
+      display: inline-block;
+      text-align: center;
+      padding: 14px 28px;
+      background-color: #0f5d52;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: 0.3s ease;
+    }
+    .signup-form-container .login-link {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .signup-form-container .login-link a {
+        color: #0f5d52;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .signup-container {
+        flex-direction: column;
+      }
+
+      .signup-left, .signup-form-container {
+        padding: 40px 25px;
+      }
+    }
+
+    .bottom-section {
+      background-color: #0f5d52;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    .bottom-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+
+    .column h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .column p {
+      margin: 8px 0;
+      font-size: 15px;
+      color: #d1d1d1;
+    }
+
+    .column a {
+      display: block;
+      text-decoration: none;
+      color: #d1d1d1;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    </style>
+</head>
+<body>
+                 <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-section">
+      <img src="images/logo.jpg" alt="Logo">
+      <div class="logo-text">
+        <span>TRAVEL</span>
+        <span>MONSTER</span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="#">All Trips</a>
+      <a href="destination.html">Destination</a>
+      <a href="activity.html">Activities</a>
+      <a href="trip-typs.html">Trip Types</a>
+      <a href="blog.html">Blog</a>
+      <a href="subscribtion.html">Subscribtion</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Logins</a>
+      <a href="signin.html">Sign up</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="content">
+        <h1 class="first-h1">Sign Up here</h1>
+      </div>
+  </section>
+  
+  <div class="signup-container">
+    <!-- Left Side -->
+    <div class="signup-left">
+      <h2>Join Travel Monster</h2>
+      <p>Create an account to unlock exclusive deals, access member-only destinations, and plan the perfect getaway with ease.</p>
+    </div>
+
+    <!-- Right Side (Form) -->
+    <div class="signup-form-container">
+      <h2>Create Your Account</h2>
+      <form>
+        <input type="text" placeholder="Full Name*" required>
+        <input type="email" placeholder="Email Address*" required>
+        <input type="text" placeholder="Username*" required>
+        <input type="password" placeholder="Password*" required>
+        <input type="password" placeholder="Confirm Password*" required>
+
+        <div class="checkbox">
+          <input type="checkbox" required>
+          <span>I agree to the <a href="#">Terms & Privacy Policy</a></span>
+        </div>
+
+        <a href="#" class="signup-btn">Sign Up</a>
+
+        <div class="login-link">
+          Already have an account? <a href="login.html">Login here</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    
+  <div class="bottom-section">
+    <div class="bottom-container">
+      
+      <div class="column">
+        <h3>Contact Info</h3>
+        <p>Open from 6 AM to 9 PM everyday.</p>
+        <p>01 2345 65486</p>
+        <a href="igwehchisom5@gmail.com">igwehchisom5@gmail.com</a>
+        <a href="#">Nigeria, Delta state</a>
+      </div>
+
+      <div class="column">
+        <h3>Destinations</h3>
+        <a href="#">Nepal</a>
+        <a href="#">Maldives</a>
+        <a href="#">Sri Lanka</a>
+        <a href="#">India</a>
+        <a href="#">Philippines</a>
+        <a href="#">France</a>
+        <a href="#">Thailand</a>
+        <a href="#">Greece</a>
+        <a href="#">Japan</a>
+      </div>
+
+      <div class="column">
+        <h3>Activities</h3>
+        <a href="#">City Tour</a>
+        <a href="#">Trekking</a>
+        <a href="#">Jungle Safari</a>
+        <a href="#">Cycling</a>
+        <a href="#">Hiking</a>
+        <a href="#">Boating</a>
+        <a href="#">Scuba Diving</a>
+        <a href="#">Kayaking</a>
+        <a href="#">Mountain Biking</a>
+      </div>
+
+      <div class="column">
+        <h3>Trip Types</h3>
+        <a href="#">Nature Friendly</a>
+        <a href="#">Budget Travel</a>
+        <a href="#">Cultural</a>
+        <a href="#">Child-friendly</a>
+        <a href="#">High Altitude</a>
+        <a href="#">Dog-friendly</a>
+        <a href="#">Luxury Travel</a>
+        <a href="#">Solo Adventures</a>
+        <a href="#">Group Tours</a>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

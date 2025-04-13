@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity</title>
+    <style>
+        body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ccc;
+      background-color: white;
+      position: fixed;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-section img {
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      border-radius: 30px;
+    }
+
+    .logo-text {
+      line-height: 1;
+    }
+
+    .logo-text span:first-child {
+      display: block;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .logo-text span:last-child {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      padding: 5px;
+      border-bottom: 2px solid teal;
+      color: teal;
+      text-shadow: 2px 2px 7px #b1aeae;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      background: url(images/lighthouse.jpg) center/cover no-repeat;
+      background-color:  rgba(0, 0, 0, 0.5);
+      background-blend-mode: darken;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      color: white;
+    }
+
+    .first-h1 {
+      font-size: 50px;
+      margin-top: 30px;
+      color: aqua;
+      font-family: cursive;
+      text-shadow: 6px 4px 7px #000000;
+    }
+
+    .travel-info-section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      font-size: 20px;
+    }
+
+    .travel-info-section p {
+      margin-bottom: 20px;
+    }
+
+    .destination-section {
+      padding: 40px;
+    }
+
+    .destination-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .destination-card {
+      text-align: center;
+    }
+
+    .destination-card img {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .destination-card p {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .destination-card strong {
+      font-weight: bold;
+    }
+
+    .destination-card small {
+      color: gray;
+    }
+
+        .activities-section {
+      padding: 60px 20px;
+      background-color: #f4f4f4;
+    }
+
+    .activity-box {
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 40px 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .activity-box::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+
+    .activity-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .activity-content h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .activity-content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .activity-content a {
+      background-color: #ffffff;
+      color: #333;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .activity-content a:hover {
+      background-color: #ddd;
+    }
+
+    .beach {
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+    }
+
+    .mountain {
+      background-image: url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6');
+    }
+
+    .culture {
+      background-image: url('https://images.unsplash.com/photo-1572635148818-ef6fd45eb394');
+    }
+
+    .bottom-section {
+      background-color: #0f5d52;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    .bottom-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+
+    .column h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .column p {
+      margin: 8px 0;
+      font-size: 15px;
+      color: #d1d1d1;
+    }
+
+    .column a {
+      display: block;
+      text-decoration: none;
+      color: #d1d1d1;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    </style>
+</head>
+<body>
+      <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-section">
+      <img src="images/logo.jpg" alt="Logo">
+      <div class="logo-text">
+        <span>TRAVEL</span>
+        <span>MONSTER</span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="#">All Trips</a>
+      <a href="destination.html">Destination</a>
+      <a href="activity.html">Activities</a>
+      <a href="trip-typs.html">Trip Types</a>
+      <a href="blog.html">Blog</a>
+      <a href="subscribtion.html">Subscribtion</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Logins</a>
+      <a href="#">Sign up</a>
+    </div>
+  </div>
+    
+  <section class="hero">
+    <div class="content">
+        <h1 class="first-h1">Activities</h1>
+      </div>
+  </section>
+
+  <div class="travel-info-section">
+    <p>Travel is the movement of people between relatively distant geographical locations, and can involve travel by foot, bicycle, automobile, train, boat, bus, airplane, or other means, with or without luggage, and can be one way or round trip. Travel can also include relatively short stays between successive movements.</p>
+
+    <p>The origin of the word “travel” is most likely lost to history. The term “travel” may originate from the Old French word travail, which means 'work'. According to the Merriam Webster dictionary, the first known use of the word travel was in the 14th century.</p>
+  </div>
+
+  <section class="destination-section">
+    <div class="destination-grid">
+  
+      <div class="destination-card">
+        <img src="images/boating.jpg" alt="Nepal">
+        <p><strong>boating</strong> <small>(5 Trips)</small></p>
+      </div>
+  
+      <div class="destination-card">
+        <img src="images/city tour.jpg" alt="Bhutan">
+        <p><strong>City tour</strong> <small>(2 Trips)</small></p>
+      </div>
+  
+      <div class="destination-card">
+        <img src="images/peak-clibing.jpg" alt="Srilanka">
+        <p><strong>Peak clibing</strong> <small>(4 Trips)</small></p>
+      </div>
+  
+      <div class="destination-card">
+        <img src="images/cycling.jpg" alt="France">
+        <p><strong>Cycling</strong> <small>(2 Trips)</small></p>
+      </div>
+  
+      <div class="destination-card">
+        <img src="images/hiking.jpg" alt="India">
+        <p><strong>Hiking</strong> <small>(3 Trips)</small></p>
+      </div>
+  
+      <div class="destination-card">
+        <img src="images/safare.jpg" alt="Maldives">
+        <p><strong>Jungle Safare</strong> <small>(3 Trips)</small></p>
+      </div>
+
+      <div class="destination-card">
+        <img src="images/rapids.jpg" alt="Maldives">
+        <p><strong>Rapids Race</strong> <small>(3 Trips)</small></p>
+      </div>
+
+      <div class="destination-card">
+        <img src="images/Running.jpg" alt="Maldives">
+        <p><strong>Running Race</strong> <small>(3 Trips)</small></p>
+      </div>
+  </section>
+
+  <section class="activities-section">
+    <div class="activity-box beach">
+      <div class="activity-content">
+        <h2>Beach Relaxation</h2>
+        <p>Escape the hustle and embrace the calm breeze of tropical beaches. Experience serenity like never before.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  
+    <div class="activity-box mountain">
+      <div class="activity-content">
+        <h2>Mountain Hiking</h2>
+        <p>Challenge yourself on adventurous trails. Discover breathtaking views and nature's raw beauty on every hike.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  
+    <div class="activity-box culture">
+      <div class="activity-content">
+        <h2>Cultural Exploration</h2>
+        <p>Dive into rich traditions, local customs, and historic landmarks. Travel deeper, beyond the surface.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="bottom-section">
+    <div class="bottom-container">
+      
+      <div class="column">
+        <h3>Contact Info</h3>
+        <p>Open from 6 AM to 9 PM everyday.</p>
+        <p>01 2345 65486</p>
+        <a href="igwehchisom5@gmail.com">igwehchisom5@gmail.com</a>
+        <a href="#">Nigeria, Delta state</a>
+      </div>
+
+      <div class="column">
+        <h3>Destinations</h3>
+        <a href="#">Nepal</a>
+        <a href="#">Maldives</a>
+        <a href="#">Sri Lanka</a>
+        <a href="#">India</a>
+        <a href="#">Philippines</a>
+        <a href="#">France</a>
+        <a href="#">Thailand</a>
+        <a href="#">Greece</a>
+        <a href="#">Japan</a>
+      </div>
+
+      <div class="column">
+        <h3>Activities</h3>
+        <a href="#">City Tour</a>
+        <a href="#">Trekking</a>
+        <a href="#">Jungle Safari</a>
+        <a href="#">Cycling</a>
+        <a href="#">Hiking</a>
+        <a href="#">Boating</a>
+        <a href="#">Scuba Diving</a>
+        <a href="#">Kayaking</a>
+        <a href="#">Mountain Biking</a>
+      </div>
+
+      <div class="column">
+        <h3>Trip Types</h3>
+        <a href="#">Nature Friendly</a>
+        <a href="#">Budget Travel</a>
+        <a href="#">Cultural</a>
+        <a href="#">Child-friendly</a>
+        <a href="#">High Altitude</a>
+        <a href="#">Dog-friendly</a>
+        <a href="#">Luxury Travel</a>
+        <a href="#">Solo Adventures</a>
+        <a href="#">Group Tours</a>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

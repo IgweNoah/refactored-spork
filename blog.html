@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+             body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ccc;
+      background-color: white;
+      position: fixed;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-section img {
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      border-radius: 30px;
+    }
+
+    .logo-text {
+      line-height: 1;
+    }
+
+    .logo-text span:first-child {
+      display: block;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .logo-text span:last-child {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      padding: 5px;
+      border-bottom: 2px solid teal;
+      color: teal;
+      text-shadow: 2px 2px 7px #b1aeae;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+
+    .blog-hero {
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+      background-blend-mode: darken;
+      background-color:  rgba(0, 0, 0, 0.5);
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .blog-hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .blog-hero p {
+      font-size: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .main-content {
+      display: flex;
+      gap: 30px;
+      padding: 40px 60px;
+      flex-wrap: wrap;
+    }
+
+    .blog-posts {
+      flex: 3;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      height: 100vh;
+      overflow-y: scroll;
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .blog-card-content {
+      padding: 15px;
+    }
+
+    .blog-card-content h3 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #2c3e50;
+    }
+
+    .blog-card-content p {
+      color: #555;
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .blog-card-content .read-more {
+      color: #3498db;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .sidebar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .tags {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .tags h4 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    .tags span {
+      display: inline-block;
+      background: #e0ecf9;
+      color: #2d6eb4;
+      padding: 6px 12px;
+      margin: 5px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .comments, .authors, .social-preview {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .comments h4, .authors h4, .social-preview h4 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    .comment {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .author-card {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .author-card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info {
+      font-size: 14px;
+    }
+
+    .author-info strong {
+      display: block;
+      color: #2c3e50;
+    }
+
+    .social-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+    }
+
+    .social-images img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 900px) {
+      .main-content {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .sidebar {
+        order: -1;
+      }
+    }
+
+    .blog-extras-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 50px auto;
+  padding: 0 20px;
+  max-width: 1200px;
+}
+
+/* Columns */
+.left-column, .right-column {
+  flex: 1 1 48%;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  padding: 25px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.left-column {
+  background-color: #e6fff5;
+  border-left: 6px solid #00c28a;
+}
+
+.right-column {
+  background-color: #f1f9ff;
+  border: 1px solid #cce5ff;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Headings */
+.left-column h3, .right-column h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.left-column h3 { color: #00a072; }
+.right-column h3 { color: #007BFF; }
+
+/* Travel Tip */
+.tip-box p {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Ticker Styles */
+.news-ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #ffffff;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+.ticker-track {
+  display: inline-block;
+  padding-left: 30%;
+  animation: scrollTicker 25s linear infinite;
+}
+
+.ticker-track span {
+  display: inline-block;
+  margin-right: 50px;
+  font-size: 16px;
+  color: #333;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.ticker-track span:hover {
+  color: #007BFF;
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes scrollTicker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delay right column for nice staggered effect */
+.right-column.fade-in {
+  animation-delay: 0.3s;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .left-column, .right-column {
+    flex: 1 1 100%;
+  }
+}
+
+.bottom-section {
+      background-color: #0f5d52;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    .bottom-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+
+    .column h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .column p {
+      margin: 8px 0;
+      font-size: 15px;
+      color: #d1d1d1;
+    }
+
+    .column a {
+      display: block;
+      text-decoration: none;
+      color: #d1d1d1;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    </style>
+</head>
+<body>
+          <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-section">
+      <img src="images/logo.jpg" alt="Logo">
+      <div class="logo-text">
+        <span>TRAVEL</span>
+        <span>MONSTER</span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="#">All Trips</a>
+      <a href="destination.html">Destination</a>
+      <a href="activity.html">Activities</a>
+      <a href="trip-typs.html">Trip Types</a>
+      <a href="blog.html">Blog</a>
+      <a href="subscribtion.html">Subscribtion</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="signin.html">Sign up</a>
+    </div>
+  </div>
+
+  <section class="blog-hero">
+    <h1>Travel Monster Blog</h1>
+    <p>Inspiring adventures, travel tips, and unforgettable experiences from around the globe.</p>
+  </section>
+
+  <div class="main-content">
+    
+    <!-- Blog Cards -->
+    <div class="blog-posts">
+      <div class="blog-card">
+        <img src="images/boating.jpg" alt="Beach">
+        <div class="blog-card-content">
+          <h3>Top 5 Beaches to Visit in Southeast Asia</h3>
+          <p>Golden sands, clear waters, and unforgettable sunsets await on these stunning shores...</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+
+        <div class="blog-card-content">
+            <h3>Top 5 Beaches to Visit in Southeast Asia</h3>
+            <p>Golden sands, clear waters, and unforgettable sunsets await on these stunning shores...</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+
+          <div class="blog-card-content">
+            <h3>Top 5 Beaches to Visit in Southeast Asia</h3>
+            <p>Golden sands, clear waters, and unforgettable sunsets</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="images/hiking.jpg" alt="Hiking">
+        <div class="blog-card-content">
+          <h3>Backpacking Across the Alps</h3>
+          <p>Discover the thrill of trekking across Europe's most iconic mountain ranges...</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+
+        <div class="blog-card-content">
+            <h3>Backpacking Across the Alps</h3>
+            <p>Discover the thrill of trekking across Europe's most iconic mountain ranges...</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+
+          <div class="blog-card-content">
+            <h3>Backpacking Across the Alps</h3>
+            <p>Discover the thrill of trekking across Europe's most iconic mountain ranges...</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="images/france.jpg" alt="City">
+        <div class="blog-card-content">
+          <h3>48 Hours in New york</h3>
+          <p>From street food to neon lights, here's how to make the most of a quick trip to Japan's capital...</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+
+        <div class="blog-card-content">
+            <h3>48 Hours in New york</h3>
+            <p>From street food to neon lights, here's how to make the most of a quick trip to Japan's capital...</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+
+          <div class="blog-card-content">
+            <h3>48 Hours in New york</h3>
+            <p>From street food to neon lights, here's how to make the most of a quick trip to Japan's capital...</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+      </div>
+
+      
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      
+      <div class="search-box">
+        <input type="text" placeholder="Search blog posts...">
+      </div>
+
+      <div class="tags">
+        <h4>Popular Tags</h4>
+        <span>#Backpacking</span>
+        <span>#Europe</span>
+        <span>#Adventure</span>
+        <span>#LuxuryTravel</span>
+        <span>#FamilyTrips</span>
+        <span>#SoloTravel</span>
+      </div>
+
+      <div class="comments">
+        <h4>Recent Comments</h4>
+        <div class="comment">“Loved the Tokyo article! So helpful.” by Jenna</div>
+        <div class="comment">“I added Bali to my list after reading this. Thanks!” by Marcus</div>
+        <div class="comment">“More budget travel posts please!” by Ayesha</div>
+      </div>
+
+      <div class="authors">
+        <h4>Meet the Authors</h4>
+        <div class="author-card">
+          <img src="images/FIRST POST.jpg" alt="Author">
+          <div class="author-info">
+            <strong>Sophie L.</strong>
+            Traveled to 27 countries
+          </div>
+        </div>
+        <div class="author-card">
+          <img src="images/man2.jpg" alt="Author">
+          <div class="author-info">
+            <strong>David kim.</strong>
+            Adventure specialist
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="blog-extras-section">
+    <div class="left-column fade-in">
+      <h3>Travel Tip of the Week</h3>
+      <div class="tip-box">
+        <p><strong>Pack smart:</strong> Roll your clothes instead of folding — it saves space and reduces wrinkles!</p>
+      </div>
+    </div>
+  
+    <div class="right-column fade-in">
+      <h3>Latest Travel Updates</h3>
+      <div class="news-ticker">
+        <div class="ticker-track">
+          <span>Visa-free entry now available for UAE travelers in Japan!</span>
+          <span>Air France adds new direct flight to Nairobi starting May.</span>
+          <span>Thailand announces Songkran Festival reopening with events.</span>
+          <span>US to review carry-on baggage rules for international flights.</span>
+          <span>Digital nomad visas now approved in Spain and Portugal.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bottom-section">
+    <div class="bottom-container">
+      
+      <div class="column">
+        <h3>Contact Info</h3>
+        <p>Open from 6 AM to 9 PM everyday.</p>
+        <p>01 2345 65486</p>
+        <a href="igwehchisom5@gmail.com">igwehchisom5@gmail.com</a>
+        <a href="#">Nigeria, Delta state</a>
+      </div>
+
+      <div class="column">
+        <h3>Destinations</h3>
+        <a href="#">Nepal</a>
+        <a href="#">Maldives</a>
+        <a href="#">Sri Lanka</a>
+        <a href="#">India</a>
+        <a href="#">Philippines</a>
+        <a href="#">France</a>
+        <a href="#">Thailand</a>
+        <a href="#">Greece</a>
+        <a href="#">Japan</a>
+      </div>
+
+      <div class="column">
+        <h3>Activities</h3>
+        <a href="#">City Tour</a>
+        <a href="#">Trekking</a>
+        <a href="#">Jungle Safari</a>
+        <a href="#">Cycling</a>
+        <a href="#">Hiking</a>
+        <a href="#">Boating</a>
+        <a href="#">Scuba Diving</a>
+        <a href="#">Kayaking</a>
+        <a href="#">Mountain Biking</a>
+      </div>
+
+      <div class="column">
+        <h3>Trip Types</h3>
+        <a href="#">Nature Friendly</a>
+        <a href="#">Budget Travel</a>
+        <a href="#">Cultural</a>
+        <a href="#">Child-friendly</a>
+        <a href="#">High Altitude</a>
+        <a href="#">Dog-friendly</a>
+        <a href="#">Luxury Travel</a>
+        <a href="#">Solo Adventures</a>
+        <a href="#">Group Tours</a>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

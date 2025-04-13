@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ccc;
+      background-color: white;
+      position: fixed;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-section img {
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      border-radius: 30px;
+    }
+
+    .logo-text {
+      line-height: 1;
+    }
+
+    .logo-text span:first-child {
+      display: block;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .logo-text span:last-child {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      padding: 5px;
+      border-bottom: 2px solid teal;
+      color: teal;
+      text-shadow: 2px 2px 7px #b1aeae;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url(images/travel-backgroundimage.jpg) center/cover no-repeat;
+      background-color:  rgba(0, 0, 0, 0.5);
+      background-blend-mode: darken;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      color: white;
+    }
+
+    .content {
+      max-width: 800px;
+    }
+
+    .first-h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+      color: aqua;
+      font-family: cursive;
+      text-shadow: 6px 4px 7px #000000;
+    }
+
+    .first-p {
+      font-size: 2.2em;
+      color: #f0f0f0;
+      font-family: cursive;
+      text-shadow: 6px 4px 7px #000000;
+    }
+
+    .form-container {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+      width: 300px;
+      color: #333;
+      margin-left: 60px;
+    }
+
+    .search-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .search-form select,
+    .search-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    .search-form button {
+      padding: 12px;
+      background-color: #f58220;
+      border: none;
+      color: white;
+      font-size: 1em;
+      border-radius: 6px;
+      width: 100%;
+    }
+
+    .search-form button {
+      background-color: #e0711b;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .form-container {
+        margin-top: 20px;
+      }
+    }
+
+    /* Gallery section styling */
+.gallery-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.gallery-header .subheading {
+  color: #007bff;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.gallery-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.gallery-header .description {
+  font-size: 1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+/* Responsive image grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 35px;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.ski-banner {
+      background-image: url(images/Skiing-background.jpg);
+      background-size: cover;
+      background-blend-mode: darken;
+      background-color:  rgba(0, 0, 0, 0.5);
+      background-position: center;
+      width: 95%;
+      height: 70vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      border-radius: 30px;
+      margin: 0 auto;
+    }
+
+    .ski-content {
+      max-width: 900px;
+      padding-left: 60px;
+    }
+
+    .ski-content .ski-title {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .ski-content .ski-description {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    .ski-content .ski-button {
+      background-color: orange;
+      color: white;
+      padding: 12px 25px;
+      font-size: 20px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .section-title {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .shadow-box {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    .deals-list, .guides-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .deal, .guide {
+      flex: 1 1 300px;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .deal h3, .guide h3 {
+      font-size: 20px;
+      margin: 0 0 10px;
+      color: #2f4f4f;
+    }
+
+    .deal p, .guide p {
+      color: #555;
+      font-size: 14px;
+    }
+
+    .subscribe-form {
+      margin-top: 20px;
+    }
+
+    .subscribe-form input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-right: 10px;
+      margin-top: 20px;
+    }
+
+    .subscribe-form button {
+      padding: 10px 15px;
+      background-color: #007b5e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .about-left {
+      flex: 1 1 500px;
+    }
+
+    .about-left h1 {
+      font-size: 26px;
+      color: #333;
+    }
+
+    .about-left p {
+      font-size: 15px;
+      color: #555;
+      margin: 15px 0;
+    }
+
+    .about-left button {
+      padding: 10px 15px;
+      background-color: #007b5e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .about-right {
+      flex: 1 1 500px;
+    }
+
+    .about-right video {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      object-fit: cover;
+    }
+
+    .reply-container {
+      max-width: 500px;
+      margin: 50px auto 50px 760px;
+      padding: 25px;
+      background-color: #c6eef5;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      font-family: Arial, sans-serif;
+    }
+
+    .reply-container h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .reply-container p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .reply-container textarea {
+      width: 100%;
+      height: 190px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      resize: none;
+
+    }
+
+    .reply-container input[type="text"],
+    .reply-container input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .label {
+        color: #0b0c0e;
+        margin-left: 2px;
+        font-style: italic;
+    }
+
+    .yourself {
+        color: red;
+    }
+
+    .reply-container button {
+      padding: 10px 20px;
+      background-color: #007b5e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .bottom-section {
+      background-color: #0f5d52;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    .bottom-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+
+    .column h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .column p {
+      margin: 8px 0;
+      font-size: 15px;
+      color: #d1d1d1;
+    }
+
+    .column a {
+      display: block;
+      text-decoration: none;
+      color: #d1d1d1;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-section">
+      <img src="images/logo.jpg" alt="Logo">
+      <div class="logo-text">
+        <span>TRAVEL</span>
+        <span>MONSTER</span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="#">All Trips</a>
+      <a href="destination.html">Destination</a>
+      <a href="activity.html">Activities</a>
+      <a href="trip-typs.html">Trip Types</a>
+      <a href="blog.html">Blog</a>
+      <a href="subscribtion.html">Subscribtion</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="signin.html">Sign up</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="content">
+      <h1 class="first-h1">Welcome to travel monster<br>Escape Your Comfort Zone.</h1>
+      <p class="first-p">Grab your stuff and let's get lost.</p>
+    </div>
+
+    <div class="form-container">
+      <div class="search-form">
+        <form>
+          <select id="activity">
+            <option>Activity</option>
+            <option value="hiking">Hiking</option>
+            <option value="diving">Diving</option>
+            <option value="surfing">Surfing</option>
+            <option value="skiing">Skiing</option>
+            <option value="Gaming">Gaming</option>
+          </select>
+
+          <select id="budget">
+            <option>Budget</option>
+            <option value="low">Low</option>
+            <option value="Standerd">Standerd</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="high">economic</option>
+            <option value="high">Bussiness Class</option>
+            <option value="high">premiun</option>
+
+          </select>
+
+          <select id="destination">
+            <option>Destination</option>
+            <option value="Paris">Paris</option>
+            <option value="Bali">Bali</option>
+            <option value="switzerland">Switzerland</option>
+            <option value="nigeria">nigeria</option>
+            <option value="intaly">intaly</option>
+            <option value="Canada">Canada</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Germany">Germany</option>
+            <option value="Spain">Spain</option>
+            <option value="Norway">Norway</option>
+            <option value="Denmark">Denmark</option>
+            <option value="England">England</option>
+          </select>
+
+          <select id="duration">
+            <option>Duration</option>
+            <option value="0 day -11days">0 day -11days</option>
+            <option value="1week">1 Week</option>
+            <option value="2weeks">2 Weeks</option>
+            <option value="3weeks">3 Weeks</option>
+            <option value="1monyh">1 Month</option>
+            <option value="2month">2 Month</option>
+          </select>
+
+          <input type="date" id="date">
+
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="gallery-header">
+      <p class="subheading">Image Gallery</p>
+      <h2>Captured Moments</h2>
+      <p class="description-2">
+        Check out some of the moments from our incredible journeys.
+        Be a part of them yourself and get a chance to be featured.
+      </p>
+    </div>
+
+    <div class="image-grid">
+      <!-- Replace src URLs with your own images -->
+      <img src="images/gallary1.jpg" alt="Gallery Image 1" />
+      <img src="images/gallary2.jpg" alt="Gallery Image 2" />
+      <img src="images/gallary3.jpg" alt="Gallery Image 3" />
+      <img src="images/gallary5.jpg" alt="Gallery Image 4" />
+      <img src="images/gallary6.jpg" alt="Gallery Image 5" />
+      <img src="images/gallary8.jpg" alt="Gallery Image 6" />
+      <img src="images/gallary7.jpg" alt="Gallery Image 6" />
+      <img src="images/gallary9.jpg" alt="Gallery Image 6" />
+    </div>
+  </section>
+
+  <section class="ski-banner">
+    <div class="ski-content">
+      <div class="ski-title">Experience The Thrill Of Skiing With Us</div>
+      <div class="ski-description">
+        To those who wish to experience one of the best holiday time ever, we are excited to offer unlimited fun is represented in a great.
+      </div>
+      <a href="#" class="ski-button">Book Your Holidays</a>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- Travel Deals -->
+    <section class="shadow-box">
+      <h2 class="section-title">Latest Travel Deals</h2>
+      <div class="deals-list">
+        <div class="deal">
+          <h3>50% Off to Bali</h3>
+          <p>Grab a round trip to Bali with amazing discounts valid till May 30.</p>
+        </div>
+        <div class="deal">
+          <h3>Weekend Escape to Paris</h3>
+          <p>Special fares for romantic weekends in Paris. Limited time only!</p>
+        </div>
+        <div class="deal">
+          <h3>Tokyo Spring Sale</h3>
+          <p>Enjoy cherry blossom season with great flight deals to Japan.</p>
+        </div>
+      </div>
+
+      <div class="subscribe-form">
+        <p><strong>Subscribe to get alerts on new deals:</strong></p>
+        <input type="email" placeholder="Enter your email">
+        <button>Subscribe</button>
+      </div>
+    </section>
+
+    <!-- Destination Guides -->
+    <section class="shadow-box">
+      <h2 class="section-title">Destination Guides</h2>
+      <div class="guides-list">
+        <div class="guide">
+          <h3>Exploring Santorini</h3>
+          <p>Discover Greece's white-washed beauty with tips on weather, food, and sights.</p>
+        </div>
+        <div class="guide">
+          <h3>Adventures in New Zealand</h3>
+          <p>From skydiving to hiking, a full guide to thrills and scenic routes.</p>
+        </div>
+        <div class="guide">
+          <h3>Cultural Tour of Morocco</h3>
+          <p>What to expect in the souks of Marrakech, local customs, and best travel times.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Travel Moster -->
+    <section class="shadow-box about-section">
+      <div class="about-left">
+        <h1>About Travel Moster</h1>
+        <p>Travel Moster is your go-to platform for discovering affordable flight deals, destination inspiration, and real travel tips to make your journey memorable. Whether you're a first-time traveler or a seasoned explorer, we bring you the best insights from around the world.</p>
+        <button>Read More</button>
+      </div>
+      <div class="about-right">
+        <video src="videos/VID-20250411-WA0066.mp4" loop controls poster="images/poster.jpg"></video>
+      </div>
+    </section>
+  </div>
+
+  <div class="reply-container">
+    <h2>Leave a reply</h2>
+    <p>Your email address will not be published. Required fields are marked *</p>
+    <form>
+      <label for="Comment" class="label">Comment <span class="yourself">*</span></label>
+      <textarea placeholder="Write your comment here"></textarea>
+      <label for="Email" class="label">Name <span class="yourself">*</span></label>
+      <input type="text" placeholder="Your Name">
+      <label for="Email" class="label">Email <span class="yourself">*</span></label>
+      <input type="email" placeholder="Your Email">
+      <button type="submit">Post Comment</button>
+    </form>
+  </div>
+
+  <div class="bottom-section">
+    <div class="bottom-container">
+      
+      <div class="column">
+        <h3>Contact Info</h3>
+        <p>Open from 6 AM to 9 PM everyday.</p>
+        <p>01 2345 65486</p>
+        <a href="igwehchisom5@gmail.com">igwehchisom5@gmail.com</a>
+        <a href="#">Nigeria, Delta state</a>
+      </div>
+
+      <div class="column">
+        <h3>Destinations</h3>
+        <a href="#">Nepal</a>
+        <a href="#">Maldives</a>
+        <a href="#">Sri Lanka</a>
+        <a href="#">India</a>
+        <a href="#">Philippines</a>
+        <a href="#">France</a>
+        <a href="#">Thailand</a>
+        <a href="#">Greece</a>
+        <a href="#">Japan</a>
+      </div>
+
+      <div class="column">
+        <h3>Activities</h3>
+        <a href="#">City Tour</a>
+        <a href="#">Trekking</a>
+        <a href="#">Jungle Safari</a>
+        <a href="#">Cycling</a>
+        <a href="#">Hiking</a>
+        <a href="#">Boating</a>
+        <a href="#">Scuba Diving</a>
+        <a href="#">Kayaking</a>
+        <a href="#">Mountain Biking</a>
+      </div>
+
+      <div class="column">
+        <h3>Trip Types</h3>
+        <a href="#">Nature Friendly</a>
+        <a href="#">Budget Travel</a>
+        <a href="#">Cultural</a>
+        <a href="#">Child-friendly</a>
+        <a href="#">High Altitude</a>
+        <a href="#">Dog-friendly</a>
+        <a href="#">Luxury Travel</a>
+        <a href="#">Solo Adventures</a>
+        <a href="#">Group Tours</a>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
